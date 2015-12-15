@@ -14,6 +14,7 @@
 		92557CBC1C1F087E0042239A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92557CBA1C1F087E0042239A /* LaunchScreen.storyboard */; };
 		92557CC51C1F0FD40042239A /* Minecraft 下午11.17.12.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92557CC41C1F0FD40042239A /* Minecraft 下午11.17.12.ttf */; };
 		92557CC71C1F10760042239A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92557CC61C1F10760042239A /* Player.swift */; };
+		9268FC561C20383F00E08A7A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9268FC551C20383F00E08A7A /* Game.swift */; };
 		9286C7411C1F304300E480EF /* attack.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9286C7401C1F304300E480EF /* attack.wav */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		92557CBD1C1F087E0042239A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92557CC41C1F0FD40042239A /* Minecraft 下午11.17.12.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Minecraft 下午11.17.12.ttf"; sourceTree = "<group>"; };
 		92557CC61C1F10760042239A /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		9268FC551C20383F00E08A7A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		9286C7401C1F304300E480EF /* attack.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = attack.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +67,7 @@
 				92557CBA1C1F087E0042239A /* LaunchScreen.storyboard */,
 				92557CC31C1F0B0E0042239A /* Sopport Files */,
 				92557CC61C1F10760042239A /* Player.swift */,
+				9268FC551C20383F00E08A7A /* Game.swift */,
 			);
 			path = "oop-game-exercise";
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				92557CB41C1F087E0042239A /* ViewController.swift in Sources */,
 				92557CC71C1F10760042239A /* Player.swift in Sources */,
 				92557CB21C1F087E0042239A /* AppDelegate.swift in Sources */,
+				9268FC561C20383F00E08A7A /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

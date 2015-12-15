@@ -12,12 +12,15 @@ import AVFoundation
 class ViewController: UIViewController {
     
     //MARK: Property
+    
+    var game: Game!
     var p1: Player!
     var p2: Player!
     var attackSound: AVAudioPlayer!
     
     
     //MARK: Outlet
+    
     @IBOutlet weak var printLbl: UILabel!
     @IBOutlet weak var p1AttackButton: UIButton!
     @IBOutlet weak var p2AttackButton: UIButton!
@@ -49,6 +52,8 @@ class ViewController: UIViewController {
         p1 = Player(name: "Orc", startingHp: 100, attackPwr: 15)
         p2 = Player(name: "Knight", startingHp: 150, attackPwr: 10)
         
+        game = Game(p1: p1, p2: p2)
+        
         p1Img.hidden = false
         p2Img.hidden = false
         
@@ -68,9 +73,22 @@ class ViewController: UIViewController {
         
         if attackSound.playing { attackSound.stop() }
        
-        attackSound!.play()
+        attackSound.play()
     }
     
+    func updateGameState(msg: String) {
+        printLbl.text = msg
+        
+        
+        if let gameResult = game.gameIsOver() {
+            
+            printLbl.text = gameResult
+            
+            p2AttackButton.hidden = true
+            p1AttackButton.hidden = true
+        }
+        
+    }
     
     //MARK: Actions
     @IBAction func p2AttackP1(sender: UIButton) {
@@ -79,21 +97,10 @@ class ViewController: UIViewController {
         p1AttackButton.enabled = false
         self.performSelector("enableAttackButton:", withObject: p1AttackButton, afterDelay: 3.0)
         
-        if p1.attempAttack(p2.attackPower) {
-            printLbl.text = "\(p2.name) attack \(p1.name) for \(p2.attackPower) HP"
-            
-        } else {
-            printLbl.text = "Attack Fail!"
-        }
         
-        if !p1.isAlive {
-            printLbl.text = "Winner is \(p2.name) !"
-            p1Img.hidden = true
-            p1AttackButton.enabled = false
-            p2AttackButton.enabled = false
-        }
-      
-        //以上，重复的部分是game logic ？
+        let lblMessage = game.attackFrom(p2, to: p1)
+        
+        updateGameState(lblMessage)
     }
     
     @IBAction func p1AttackP2(sender: UIButton) {
@@ -101,22 +108,11 @@ class ViewController: UIViewController {
 
         p2AttackButton.enabled = false
         self.performSelector("enableAttackButton:", withObject: p2AttackButton, afterDelay: 3.0)
-        
-        if p2.attempAttack(p1.attackPower) {
-            printLbl.text = "\(p1.name) attack \(p2.name) for \(p1.attackPower) HP"
-            
-        } else {
-            printLbl.text = "Attack Fail!"
-        }
-        
-        if !p2.isAlive {
-            printLbl.text = "Winner is \(p1.name) !"
-            p2Img.hidden = true
-            p2AttackButton.enabled = false
-            p1AttackButton.enabled = false
-        }
 
-        //以上，重复的部分是game logic ？
+        
+        let lblMessgae = game.attackFrom(p1, to: p2)
+
+        updateGameState(lblMessgae)
     }
     
     
